@@ -30,6 +30,7 @@ echo "变量 y 是：$x";
  *
  * include 和 require 区别
  * include可用于在选择结构中执行 require在代码中任何地方都会执行
+ * include出错会报错并继续执行脚本，require也会报错并终止脚本
  * 都可能会导致文件多次被包含
  * include_once 和 require_once 区别
  * 和上述差不多 但两者都会验证包含文件是否已经被包含 若已包含则不处理
