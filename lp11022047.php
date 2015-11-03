@@ -8,6 +8,6 @@
     <br />
     <input type="submit" name="submit" value="Submit" />
 </form>
-
+<?php echo $_COOKIE['user']; ?>
 </body>
 </html>
