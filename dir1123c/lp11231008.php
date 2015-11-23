@@ -34,7 +34,7 @@ function curl_redir_exec($ch,$debug=''){
             $url['host'] = $last_url['host'];
         }
         if(!$url['path']){
-            $url['path'] = $url['path'];
+            $url['path'] = $last_url['path'];
         }
         $new_url = $url['scheme'].'://'.$url['host'].$url['path'].($url['query']? '?'.$url['query']:'');
         curl_setopt($ch,CURLOPT_URL,$new_url);
