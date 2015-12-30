@@ -9,3 +9,6 @@ $str = "只差一厘米&quot;害了她一生&nbsp;&nbsp;  &lt;    余氏身高�
 echo htmlspecialchars_decode($str);
 
 echo str_replace('&nbsp;','3',$str);
+echo '<hr>';
+$a = strtotime('-29 day');
+echo date('Y-m-d',$a);
