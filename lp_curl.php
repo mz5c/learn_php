@@ -21,3 +21,13 @@ function https_request($url, $data = null) {
     curl_close($curl);
     return $output;
 }
+
+$url = 'http://weixin.sogou.com/weixin?query=jkys2015&type=1&page=1';
+//echo '<xmp>';var_dump(https_request($url));
+$res = https_request($url);
+
+$matchOpenid = array();$openids=array();
+preg_match_all('|<div class="wx-rb bg-blue wx-rb_v1 _item" href="/gzh\?openid=([\S]+)&amp;ext=([\S]+)" target="_blank"|', $res, $matchOpenid);
+echo '<xmp>';var_dump($matchOpenid);echo '<br>';
+preg_match_all('|<label name="em_weixinhao">([\S]*)<\/label><\/span>|', $res, $openids);
+echo '<xmp>';var_dump($openids);
