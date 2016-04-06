@@ -5,8 +5,8 @@
  * Date: 2016/1/4
  * Time: 18:19
  */
-$allowtype = array('gif', 'png', 'jpg');
-$size = 1000000;
+$allowtype = array('gif', 'png', 'jpg', 'jpeg');
+$size = $_POST['MAX_FILE_SIZE'];
 $path = '../upload';
 
 if($_FILES['myfile']['error'] > 0){
@@ -21,6 +21,7 @@ if($_FILES['myfile']['error'] > 0){
 }
 
 $hz = array_pop(explode('.',$_FILES['myfile']['name']));
+
 
 if(!in_array($hz,$allowtype)){
     die('not allowed');
