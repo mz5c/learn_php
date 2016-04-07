@@ -43,4 +43,4 @@ if(is_uploaded_file($_FILES['myfile']['tmp_name'])){
 
 echo 'upload success'.'<br>';
 echo '<a href="uploadfile.html">back</a><br>';
-echo '<a href="http://test.localhost.com/learn_php/upload/wu.jpg">download</a>';
+echo '<a href="http://test.localhost.com/learn_php/upload/desktop.jpg">download</a>';
