@@ -10,7 +10,7 @@ require 'fileupload.class.php';
 $up = new FileUpload();
 $up->set('path','../upload')
     ->set('size',1000000)
-    ->set('allowtype',array('jpg','png','gif','txt'))
+    ->set('allowtype',array('jpg','png','gif','txt','jpeg'))
     ->set('israndname',false);
 
 if($up->upload('myfile')){
