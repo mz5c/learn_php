@@ -1,4 +1,0 @@
-windows下给php安装和开启curl扩展
-1，将php安装目录文件夹下的三个文件php_curl.dll（在ext文件夹中），libeay32.dll，ssleay32.dll复制到C盘windows目录下system32文件夹下
-2，打开php.ini将 ;extension=php_url.dll 中的分号去掉
-3，重启服务器（apache等）
