@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>test</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="bootstrap-3.3.5-dist/jquery-2.1.4.min.js"></script>
+    <script src="layer/layer.js"></script>
 </head>
 <body>
-<div style="text-align: center;">
-    <h1>hello</h1>
+<h1>hello</h1>
+<button id="test" class="layui-btn layui-btn-radius layui-btn-warm">test</button>
+<hr>
+<div id="about" style="width: 30%;margin: 0 auto;">
+<a id="xxx" href="http://120.26.99.225">rico</a>
 </div>
+<hr>
+<i class="layui-icon">&#xe60c;</i>
+<hr>
+<i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe63a;</i>
+<blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+<blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字</blockquote>
+<script>
+    $(document).ready(function () {
+        $('#test').on('click', function () {
+            /*layer.open({
+                type: 2,
+                title: 'rico',
+                fix: false,
+                maxmin: true,
+                shadeClose: true,
+                area: ['1100px', '600px'],
+                content: 'http://120.26.99.225',
+                end: function(){
+                    layer.tips('Hi', '#about', {tips: 1})
+                }
+            });*/
+            var index = layer.open({
+                type: 2,
+                content: 'http://layim.layui.com',
+                area: ['320px', '195px'],
+                maxmin: true
+            });
+            //layer.full(index);
+        });
+    });
+</script>
 </body>
 </html>
