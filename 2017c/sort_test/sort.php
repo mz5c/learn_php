@@ -6,6 +6,13 @@ class Sort
 		echo json_encode(range(1,10));
 	}
 
+	private function swap(&$a, &$b)
+	{
+		$tmp = $a;
+		$a   = $b;
+		$b   = $tmp;
+	}
+
 	public static function InsertSort($arr)
 	{
 		$start = microtime(1);
@@ -157,17 +164,128 @@ class Sort
 
 	public function HeapSort($arr)
 	{
+		//echo json_encode($arr) . "\n";
 		$start = microtime(1);
 		$this->BuildingHeap($arr);
-		for ($i = count($arr) - 1; $i > 0; $i--) {
+		//echo json_encode($arr) . "\n";
+		$count = count($arr);
+		for ($i = $count - 1; $i > 0; $i--) {
 			$tmp = $arr[$i];
 			$arr[$i] = $arr[0];
 			$arr[0] = $tmp;
 			$this->HeapAdjust($arr, 0, $i);
+			//echo json_encode($arr)."\n";
 		}
 		echo '-----HeapSort-----' . "\n";
 		echo microtime(1) - $start;
 		echo "\n";
 		//echo json_encode($arr) . "\n";
 	}
+
+	public function BubbleSort($arr)
+	{
+		//echo json_encode($arr)."\n";
+		$start = microtime(1);
+		$count = count($arr);
+		for ($i = 0; $i < $count - 1; $i++) {
+			for ($j = 0; $j < $count - $i -1; $j++) {
+				if ($arr[$j] > $arr[$j+1]) {
+					$tmp = $arr[$j];
+					$arr[$j] = $arr[$j+1];
+					$arr[$j+1] = $tmp;
+				}
+			}
+		}
+		echo '-----BubbleSort-----' . "\n";
+		echo microtime(1) - $start;
+		echo "\n";
+		//echo json_encode($arr)."\n";
+	}
+
+	public function BubbleSort2($arr)
+	{
+		//echo json_encode($arr)."\n";
+		$start = microtime(1);
+		$count = count($arr);
+		$i = $count - 1;
+		while ($i > 0) {
+			$pos = 0;
+			for ($j = 0; $j < $i; $j++) {
+				if ($arr[$j] > $arr[$j+1]) {
+					$pos = $j;
+					$tmp = $arr[$j];
+					$arr[$j] = $arr[$j+1];
+					$arr[$j+1] = $tmp;
+				}
+			}
+			$i = $pos;
+		}
+		echo '-----BubbleSort2-----'."\n";
+		echo microtime(1) - $start;
+		echo "\n";
+		//echo json_encode($arr)."\n";
+	}
+
+	public function QuickSort($arr)
+	{
+		//echo json_encode($arr)."\n";
+		$start = microtime(1);
+		$count = count($arr);
+		$this->quick_sort($arr, 0, $count-1);
+		echo '-----QuickSort-----'."\n";
+		echo microtime(1)-$start;
+		echo "\n";
+		//echo json_encode($arr)."\n";
+	}
+
+	public function quick_sort(&$a, $low, $high)
+	{
+		if ($low < $high) {
+			$p = $this->partition($a, $low, $high);
+			$this->quick_sort($a, $low, $p - 1);
+			$this->quick_sort($a, $p + 1, $high);
+		}
+	}
+
+	public function partition(&$a, $low, $high)
+	{
+		$p = $a[$low];
+		while ($low < $high) {
+			while ($low < $high && $a[$high] >= $p) {
+				$high--;
+			}
+			$this->swap($a[$low], $a[$high]);
+			while ($low < $high && $a[$low] <= $p) {
+				$low++;
+			}
+			$this->swap($a[$low], $a[$high]);
+		}
+		return $low;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
